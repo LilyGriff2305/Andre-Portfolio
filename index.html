@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andre Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f9e8e8;
+      color: #171717;
+      font-family: "Absans", sans-serif;
+    }
+
+    .sidebar {
+      width: 30%;
+      min-height: 100vh;
+      padding: 3rem 2.5rem;
+      background: #f2356e;
+      /* border-right: 1px solid #d10070; */
+    }
+
+    .sidebar h1 {
+      margin: 0 0 3rem;
+      font-size: clamp(1.9rem, 3vw, 2.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      font-family: "Lora", Georgia, serif;
+    }
+
+    .sidebar h1::after {
+      content: "";
+      display: block;
+      width: 70%;
+      height: 2px;
+      margin-top: 1.25rem;
+      background: rgba(23, 23, 23, 0.45);
+    }
+
+    .sidebar nav {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .sidebar a {
+      width: fit-content;
+      color: #171717;
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+
+    .sidebar a:hover,
+    .sidebar a:focus-visible { color: #fff; }
+
+    @media (max-width: 640px) {
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 2rem 1.5rem;
+        border-right: 0;
+        border-bottom: 1px solid #d10070;
+      }
+
+      .sidebar h1 { margin-bottom: 1.75rem; }
+      .sidebar nav { gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Main sidebar">
+    <h1>Andre Bastian Ibarguengoitia</h1>
+    <nav aria-label="Main navigation">
+      <a href="#shows">Shows</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </aside>
+</body>
+</html>
