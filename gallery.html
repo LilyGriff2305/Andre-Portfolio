@@ -15,19 +15,22 @@
       display: flex;
       min-height: 100vh;
       margin: 0;
-      background: var(--theme-white);
+      background: var(--theme-blush);
       color: var(--theme-ink);
       font-family: "Absans", sans-serif;
     }
 
     .gallery {
       flex: 1;
-      display: grid;
-      align-content: start;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      column-gap: 1.75rem;
-      row-gap: 2.5rem;
+      min-width: 0;
       padding: clamp(2rem, 5vw, 5rem);
+    }
+
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem 1.75rem;
+      margin-top: 2.5rem;
     }
 
     .gallery-header {
@@ -85,10 +88,11 @@
 
     .gallery-item h3 {
       margin: 0;
-      font-family: "Lora", Georgia, serif;
+      color: var(--theme-ink);
+      font-family: "Absans", sans-serif;
       font-size: clamp(1.15rem, 1.5vw, 1.4rem);
-      font-weight: 500;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
 
     .image-frame {
@@ -127,17 +131,25 @@
     }
 
     .project-section {
-      grid-column: 1 / -1;
       min-width: 0;
-      padding-top: 1rem;
+      margin-top: 0.5rem;
+      padding-top: 2rem;
       border-top: 1px solid var(--theme-divider-soft);
     }
 
-    .project-heading {
-      margin: 0 0 1.25rem;
+    .project-groups {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .gallery .project-heading {
+      margin: 0 0 1.5rem;
+      padding: 0.75rem 1rem;
+      background: var(--theme-blush);
       font-family: "Lora", Georgia, serif;
-      font-size: clamp(1.7rem, 2.6vw, 2.4rem);
-      font-weight: 500;
+      font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+      font-weight: 700;
       letter-spacing: -0.035em;
     }
 
@@ -186,6 +198,13 @@
       font-weight: 500;
     }
 
+    .image-popup p {
+      max-width: 42rem;
+      margin: 0 0 1.25rem;
+      color: var(--theme-muted);
+      line-height: 1.6;
+    }
+
     .image-popup img {
       display: block;
       max-width: 100%;
@@ -198,7 +217,7 @@
       body { display: block; }
 
       .gallery { padding: 1.5rem; }
-      .gallery { grid-template-columns: 1fr; }
+      .artwork-grid { grid-template-columns: 1fr; }
       .project-strip .gallery-item { flex-basis: 82%; }
     }
   </style>
@@ -221,119 +240,98 @@
       <h2>Gallery</h2>
       <p class="intro">Textile studies, material experiments, and work in space.</p>
     </header>
-    <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Draped Cloth Study">
-      <h3>Draped Cloth Study</h3>
-      <div class="image-frame">
-        <img src="images/andre-artwork.jpeg" alt="Pink dyed cloth draped over a wall">
-        <span class="image-details">2026 &middot; Dyed fabric installation</span>
-      </div>
-    </div>
-    <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Pink Woven Sample">
-      <h3>Pink Woven Sample</h3>
-      <div class="image-frame">
-        <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM.jpeg" alt="Pink and white woven textile sample">
-        <span class="image-details">2026 &middot; Woven textile</span>
-      </div>
-    </div>
-    <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Framed Textile Study">
-      <h3>Framed Textile Study</h3>
-      <div class="image-frame">
-        <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(1).jpeg" alt="Dark textile artwork with a red pattern in a wooden frame">
-        <span class="image-details">2026 &middot; Embroidered textile</span>
-      </div>
-    </div>
-    <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Studio Installation">
-      <h3>Studio Installation</h3>
-      <div class="image-frame">
-        <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(2).jpeg" alt="Artist standing beside a wooden studio installation">
-        <span class="image-details">2026 &middot; Wood installation</span>
-      </div>
-    </div>
-    <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Red Textile Study">
-      <h3>Red Textile Study</h3>
-      <div class="image-frame">
-        <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(3).jpeg" alt="Red textile artwork in a wooden frame">
-        <span class="image-details">2026 &middot; Embroidered textile</span>
-      </div>
-    </div>
-
-    <section class="project-section" aria-labelledby="woven-project-title">
-      <h2 class="project-heading" id="woven-project-title">Woven Color Studies</h2>
-      <div class="project-strip" aria-label="Scrollable images from Woven Color Studies">
-        <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Pink Woven Sample">
-          <h3>Pink Woven Sample</h3>
-          <div class="image-frame">
-            <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM.jpeg" alt="Pink and white woven textile sample">
-            <span class="image-details">2026 &middot; Woven textile</span>
-          </div>
-        </div>
-        <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Framed Textile Study">
-          <h3>Framed Textile Study</h3>
-          <div class="image-frame">
-            <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(1).jpeg" alt="Dark textile artwork with a red pattern in a wooden frame">
-            <span class="image-details">2026 &middot; Embroidered textile</span>
-          </div>
-        </div>
-        <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Red Textile Study">
-          <h3>Red Textile Study</h3>
-          <div class="image-frame">
-            <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(3).jpeg" alt="Red textile artwork in a wooden frame">
-            <span class="image-details">2026 &middot; Embroidered textile</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" aria-labelledby="installation-project-title">
-      <h2 class="project-heading" id="installation-project-title">Cloth &amp; Space</h2>
-      <div class="project-strip" aria-label="Scrollable images from Cloth and Space">
-        <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Draped Cloth Study">
-          <h3>Draped Cloth Study</h3>
-          <div class="image-frame">
-            <img src="images/andre-artwork.jpeg" alt="Pink dyed cloth draped over a wall">
-            <span class="image-details">2026 &middot; Dyed fabric installation</span>
-          </div>
-        </div>
-        <div class="gallery-item" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Studio Installation">
-          <h3>Studio Installation</h3>
-          <div class="image-frame">
-            <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(2).jpeg" alt="Artist standing beside a wooden studio installation">
-            <span class="image-details">2026 &middot; Wood installation</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="artwork-grid" id="artwork-grid" aria-label="Artwork"></div>
+    <div class="project-groups" id="project-groups"></div>
   </main>
 
-  <dialog class="image-popup" aria-labelledby="popup-title">
+  <dialog class="image-popup" aria-labelledby="popup-title" aria-describedby="popup-description">
     <button class="popup-close" type="button" aria-label="Close image popup">Close</button>
     <h2 id="popup-title"></h2>
+    <p id="popup-description"></p>
     <img src="images/andre-artwork.jpeg" alt="">
   </dialog>
 
+  <script src="artwork-data.js"></script>
   <script>
-    const galleryItems = document.querySelectorAll(".gallery-item");
     const imagePopup = document.querySelector(".image-popup");
     const popupClose = document.querySelector(".popup-close");
     const popupTitle = document.querySelector("#popup-title");
+    const popupDescription = document.querySelector("#popup-description");
     const popupImage = imagePopup.querySelector("img");
+
+    function createArtworkCard(artwork) {
+      const card = document.createElement("div");
+      card.className = "gallery-item";
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-haspopup", "dialog");
+      card.setAttribute("aria-label", `Open ${artwork.title}`);
+      card.dataset.description = artwork.description;
+
+      const title = document.createElement("h3");
+      title.textContent = artwork.title;
+
+      const frame = document.createElement("div");
+      frame.className = "image-frame";
+
+      const image = document.createElement("img");
+      image.src = artwork.src;
+      image.alt = artwork.alt;
+
+      const details = document.createElement("span");
+      details.className = "image-details";
+      details.textContent = `${artwork.year} · ${artwork.medium}`;
+
+      frame.append(image, details);
+      card.append(title, frame);
+      card.addEventListener("click", () => openImagePopup(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openImagePopup(card);
+        }
+      });
+      return card;
+    }
 
     function openImagePopup(galleryItem) {
       const image = galleryItem.querySelector("img");
       popupTitle.textContent = galleryItem.querySelector("h3").textContent;
+      popupDescription.textContent = galleryItem.dataset.description;
       popupImage.src = image.src;
       popupImage.alt = image.alt;
       imagePopup.showModal();
     }
 
-    galleryItems.forEach((galleryItem) => {
-      galleryItem.addEventListener("click", () => openImagePopup(galleryItem));
-      galleryItem.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openImagePopup(galleryItem);
-        }
-      });
+    const artworksById = new Map(window.portfolioArtworks.map((artwork) => [artwork.id, artwork]));
+    const artworkGrid = document.querySelector("#artwork-grid");
+    const projectGroups = document.querySelector("#project-groups");
+
+    window.portfolioArtworks.forEach((artwork) => {
+      artworkGrid.append(createArtworkCard(artwork));
+    });
+
+    window.portfolioProjects.forEach((project, index) => {
+      const section = document.createElement("section");
+      section.className = "project-section";
+      section.setAttribute("aria-labelledby", `project-title-${index}`);
+
+      const title = document.createElement("h2");
+      title.className = "project-heading";
+      title.id = `project-title-${index}`;
+      title.textContent = project.title;
+
+      const strip = document.createElement("div");
+      strip.className = "project-strip";
+      strip.setAttribute("aria-label", `Scrollable images from ${project.title}`);
+
+      project.artworkIds
+        .map((id) => artworksById.get(id))
+        .filter(Boolean)
+        .forEach((artwork) => strip.append(createArtworkCard(artwork)));
+
+      section.append(title, strip);
+      projectGroups.append(section);
     });
     popupClose.addEventListener("click", () => imagePopup.close());
     imagePopup.addEventListener("click", (event) => {

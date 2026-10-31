@@ -41,8 +41,15 @@
     <h2>About</h2>
     <div class="about-layout">
       <p class="about-copy">This portfolio brings together textile studies, experiments in color, and work with materials in space. Each piece begins with a close look at how texture, pattern, and process can change the way a material is seen.</p>
-      <img class="about-image" src="images/andre-artwork.jpeg" alt="Pink dyed fabric draped as a wall installation">
+      <img class="about-image" id="about-artwork" alt="">
     </div>
   </main>
+  <script src="artwork-data.js"></script>
+  <script>
+    const aboutArtwork = window.portfolioArtworks.find((artwork) => artwork.id === "draped-cloth-study");
+    const aboutImage = document.querySelector("#about-artwork");
+    aboutImage.src = aboutArtwork.src;
+    aboutImage.alt = aboutArtwork.alt;
+  </script>
 </body>
 </html>
