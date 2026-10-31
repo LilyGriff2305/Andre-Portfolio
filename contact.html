@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Andre Bastian Ibarguengoitia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidebar.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { display: flex; min-height: 100vh; margin: 0; background: var(--theme-blush); color: var(--theme-ink); font-family: "Absans", sans-serif; }
+    main { flex: 1; min-width: 0; padding: clamp(2rem, 6vw, 6rem); }
+    .eyebrow { margin: 0 0 0.75rem; color: var(--theme-rose); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    h2 { margin: 0; font-family: "Lora", Georgia, serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
+    @media (max-width: 640px) {
+      body { display: block; }
+      main { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body id="top">
+  <aside class="sidebar" aria-label="Main sidebar">
+    <h1><a href="index.html#top">Andre Bastian Ibarguengoitia</a></h1>
+    <nav aria-label="Main navigation">
+      <a href="index.html#top">Main</a>
+      <a href="gallery.html">Gallery</a>
+      <!-- <a href="index.html#projects">Projects</a> -->
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </aside>
+  <main>
+    <p class="eyebrow">Portfolio</p>
+    <h2>Contact</h2>
+    <p class="intro">For questions about the work, collaborations, or project inquiries, please get in touch.</p>
+  </main>
+</body>
+</html>

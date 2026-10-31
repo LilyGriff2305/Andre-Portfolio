@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Andre Bastian Ibarguengoitia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidebar.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { display: flex; min-height: 100vh; margin: 0; background: var(--theme-blush); color: var(--theme-ink); font-family: "Absans", sans-serif; }
+    main { flex: 1; min-width: 0; padding: clamp(2rem, 6vw, 6rem); }
+    .eyebrow { margin: 0 0 0.75rem; color: var(--theme-rose); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    h2 { margin: 0; font-family: "Lora", Georgia, serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
+    .about-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); margin-top: 2rem; }
+    .about-copy { max-width: 42rem; color: var(--theme-muted); font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.8; }
+    .about-image { display: block; width: 100%; max-height: 70vh; aspect-ratio: 4 / 5; object-fit: cover; }
+    @media (max-width: 640px) {
+      body { display: block; }
+      main { padding: 2rem 1.5rem; }
+      .about-layout { grid-template-columns: 1fr; gap: 1rem; }
+      .about-image { max-height: none; aspect-ratio: 4 / 3; }
+    }
+  </style>
+</head>
+<body id="top">
+  <aside class="sidebar" aria-label="Main sidebar">
+    <h1><a href="index.html#top">Andre Bastian Ibarguengoitia</a></h1>
+    <nav aria-label="Main navigation">
+      <a href="index.html#top">Main</a>
+      <a href="gallery.html">Gallery</a>
+      <!-- <a href="index.html#projects">Projects</a> -->
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+  <main>
+    <p class="eyebrow">Artist portfolio</p>
+    <h2>About</h2>
+    <div class="about-layout">
+      <p class="about-copy">This portfolio brings together textile studies, experiments in color, and work with materials in space. Each piece begins with a close look at how texture, pattern, and process can change the way a material is seen.</p>
+      <img class="about-image" src="images/andre-artwork.jpeg" alt="Pink dyed fabric draped as a wall installation">
+    </div>
+  </main>
+</body>
+</html>

@@ -3,85 +3,195 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Andre Portfolio</title>
+  <title>Andre Bastian Ibarguengoitia | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidebar.css">
   <style>
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
+      display: flex;
       min-height: 100vh;
-      background: #f9e8e8;
-      color: #171717;
+      margin: 0;
+      background: var(--theme-blush);
+      color: var(--theme-ink);
       font-family: "Absans", sans-serif;
     }
 
-    .sidebar {
-      width: 30%;
-      min-height: 100vh;
-      padding: 3rem 2.5rem;
-      background: #f2356e;
-      /* border-right: 1px solid #d10070; */
+    .page-content {
+      flex: 1;
+      min-width: 0;
+      padding: clamp(2rem, 6vw, 6rem);
     }
 
-    .sidebar h1 {
-      margin: 0 0 3rem;
-      font-size: clamp(1.9rem, 3vw, 2.75rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      font-family: "Lora", Georgia, serif;
-    }
-
-    .sidebar h1::after {
-      content: "";
-      display: block;
-      width: 70%;
-      height: 2px;
-      margin-top: 1.25rem;
-      background: rgba(23, 23, 23, 0.45);
-    }
-
-    .sidebar nav {
+    .hero {
       display: grid;
-      gap: 1rem;
+      min-height: 70vh;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+      padding-bottom: 5rem;
     }
 
-    .sidebar a {
-      width: fit-content;
-      color: #171717;
-      font-size: 1.15rem;
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--theme-rose);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h2 {
+      max-width: 12ch;
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .hero-copy {
+      max-width: 34rem;
+      margin: 1.5rem 0 0;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      line-height: 1.65;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid currentColor;
+      color: inherit;
       text-decoration: none;
-      transition: color 150ms ease;
     }
 
-    .sidebar a:hover,
-    .sidebar a:focus-visible { color: #fff; }
+    .hero-image {
+      display: block;
+      width: 100%;
+      max-height: 74vh;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .content-section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--theme-divider-subtle);
+      scroll-margin-top: 2rem;
+    }
+
+    .content-section h2 {
+      margin: 0 0 1.5rem;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 3.4rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .about-copy {
+      max-width: 45rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-grid a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .project-grid img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: opacity 180ms ease;
+    }
+
+    .project-grid a:hover img,
+    .project-grid a:focus-visible img { opacity: 0.8; }
+
+    .project-grid h3 {
+      margin: 0.75rem 0 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr 0.8fr; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
 
     @media (max-width: 640px) {
-      .sidebar {
-        width: 100%;
-        min-height: auto;
-        padding: 2rem 1.5rem;
-        border-right: 0;
-        border-bottom: 1px solid #d10070;
-      }
-
-      .sidebar h1 { margin-bottom: 1.75rem; }
-      .sidebar nav { gap: 0.8rem; }
+      body { display: block; }
+      .page-content { padding: 1.5rem; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0 3rem; }
+      .hero-image { max-height: none; aspect-ratio: 4 / 3; }
+      .content-section { padding: 3rem 0; }
+      .project-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-<body>
+<body id="top">
   <aside class="sidebar" aria-label="Main sidebar">
-    <h1>Andre Bastian Ibarguengoitia</h1>
+    <h1><a href="index.html#top">Andre Bastian Ibarguengoitia</a></h1>
     <nav aria-label="Main navigation">
-      <a href="#shows">Shows</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
+      <a href="index.html#top">Main</a>
+      <a href="gallery.html">Gallery</a>
+      <!-- <a href="#projects">Projects</a> -->
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </aside>
+
+  <main class="page-content">
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow">Artist portfolio</p>
+        <h2 id="intro-title">Material, color, and form.</h2>
+        <p class="hero-copy">A collection of work exploring textiles, dyed surfaces, and installation.</p>
+        <a class="text-link" href="gallery.html">Explore the gallery <span aria-hidden="true">↗</span></a>
+      </div>
+      <img class="hero-image" src="images/andre-artwork.jpeg" alt="Pink dyed fabric draped as a wall installation">
+    </section>
+
+    <section class="content-section" id="about" aria-labelledby="about-title">
+      <p class="eyebrow">About</p>
+      <h2 id="about-title">Working with material</h2>
+      <p class="about-copy">This portfolio brings together textile studies, experiments in color, and work with materials in space. Each piece begins with a close look at how texture, pattern, and process can change the way a material is seen.</p>
+    </section>
+
+    <section class="content-section" id="projects" aria-labelledby="projects-title">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="projects-title">Projects</h2>
+      <div class="project-grid">
+        <a href="gallery.html" aria-label="View the full gallery: Draped Cloth Study">
+          <img src="images/andre-artwork.jpeg" alt="Pink dyed cloth draped over a wall">
+          <h3>Draped Cloth Study</h3>
+        </a>
+        <a href="gallery.html" aria-label="View the full gallery: Pink Woven Sample">
+          <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM.jpeg" alt="Pink and white woven textile sample">
+          <h3>Pink Woven Sample</h3>
+        </a>
+        <a href="gallery.html" aria-label="View the full gallery: Framed Textile Study">
+          <img src="images/WhatsApp%20Image%202026-10-30%20at%207.11.53%20PM%20(1).jpeg" alt="Dark textile artwork with a red pattern in a wooden frame">
+          <h3>Framed Textile Study</h3>
+        </a>
+      </div>
+      <a class="text-link" href="gallery.html">View all work <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
 </body>
 </html>
