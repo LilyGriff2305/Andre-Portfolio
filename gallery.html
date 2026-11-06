@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gallery | Andre Portfolio</title>
+  <title>Works | Andre Bastian Ibarguengoitia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -88,11 +88,12 @@
 
     .gallery-item h3 {
       margin: 0;
-      color: var(--theme-ink);
+      color: var(--theme-rose);
       font-family: "Absans", sans-serif;
-      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
-      font-weight: 700;
-      letter-spacing: 0.01em;
+      font-size: clamp(1.0rem, 1.5vw, 1.2rem);
+      font-weight: 500;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
     }
 
     .image-frame {
@@ -105,7 +106,7 @@
     .image-frame img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
     }
 
@@ -226,20 +227,19 @@
   <aside class="sidebar" aria-label="Main sidebar">
     <h1><a href="index.html#top">Andre Bastian Ibarguengoitia</a></h1>
     <nav aria-label="Main navigation">
-      <a href="index.html#top">Main</a>
-      <a href="gallery.html" aria-current="page">Gallery</a>
-      <!-- <a href="index.html#projects">Projects</a> -->
+      <a href="index.html#top">Inquiry</a>
+      <a href="gallery.html" aria-current="page">Works</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </aside>
 
   <main class="gallery" aria-label="Gallery">
-    <header class="gallery-header">
+    <!-- <header class="gallery-header">
       <p>Selected work</p>
       <h2>Gallery</h2>
       <p class="intro">Textile studies, material experiments, and work in space.</p>
-    </header>
+    </header> -->
     <div class="artwork-grid" id="artwork-grid" aria-label="Artwork"></div>
     <div class="project-groups" id="project-groups"></div>
   </main>
